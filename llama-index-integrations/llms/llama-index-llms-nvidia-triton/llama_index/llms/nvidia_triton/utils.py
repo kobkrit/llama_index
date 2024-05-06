@@ -199,7 +199,7 @@ class _BaseTritonClient(abc.ABC):
         """Create the input for the triton inference server."""
         query = np.array(prompt).astype(object)
         request_output_len = np.array([tokens]).astype(np.int32).reshape((1, -1))
-        runtime_top_k = np.array([top_k]).astype(np.int32).reshape((1, -1))
+        runtime_top_k = np.array([top_k]).astype(np.uint32).reshape((1, -1))
         runtime_top_p = np.array([top_p]).astype(np.float32).reshape((1, -1))
         temperature_array = np.array([temperature]).astype(np.float32).reshape((1, -1))
         len_penalty = np.array([length_penalty]).astype(np.float32).reshape((1, -1))
